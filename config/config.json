@@ -1,0 +1,23 @@
+{
+  "port": 3000,
+  "session": {
+    "secret": "some random secret",
+    "key": "my secret key"
+  },
+  "mongoose": {
+    "url": "mongodb://localhost/nodetest",
+    "options": {
+      "server": {
+        "socketOptions": {
+          "keepAlive": 1
+        }
+      }
+    }
+  },
+  "facebook": {
+    "clientID": 331049000561067,
+    "clientSecret": "e7ff73a9a0e04e97a671a20d1e428ba3",
+    "callbackURL": "http://localhost:3000/auth/facebook/callback",
+    "profileFields": ["id", "emails", "name", "photos"]
+  }
+}
