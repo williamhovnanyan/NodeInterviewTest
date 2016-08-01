@@ -3,10 +3,11 @@
 ### Goal
 As a developer, I want to use a Photo API in order to manage a photos list. The typical use cases are :
 
+- create a page which allows user to sign in and submit images (optionally with gps coordinates)
 - fetch a photos's information
 - update a photos's information
-- add new photo
 - delete a photo
+- filter photos by gps coordinates and by distance (view page)
 - fetch all the photos of a given user (or mine)
 
 So... How would you design this API? :)
@@ -20,6 +21,7 @@ A Photo is composed of:
 - `url` - url of the photo
 - `private` - accessibility flag
 - `user_id` - owner's id
+- `coordinates` - photo's gps coordinates
 
 Note that a photo can be `private`: you must be authenticated and request for permission to access other user's private photos (authentication should be done via valid access_token as QS parameter).
 
@@ -45,6 +47,7 @@ Note that a photo can be `private`: you must be authenticated and request for pe
 	- ability for fast querying
 	- ability to grow and scale horizontally
 - think about the way of storing and serving photos binary data (some snippets of implementation here would be highly appreciated)
+- paging should be supported in view page(scrolling is recommended)
 - focus more on **architecture principles** rather than actual coding. If you can code something it's a bonus, but we want to see how you would architecture the code, which areas you'll focus on
 - preparing data on writes vs. querying on reads - what approach would you use ?
 - think wider in terms of providing easy support for feature integration/modification, like:
@@ -56,3 +59,6 @@ Note that a photo can be `private`: you must be authenticated and request for pe
 
 - the authentication part for the private photos doesn't have to be written. Just think about the interaction flow between the client and the server. But again, the snippets of implementation here would be appreciated.
 - pay special attention to db scheme design and try to make querying as optimal as possible
+- number of images can be above 1 million
+- server resources needs to be fully utilized
+
